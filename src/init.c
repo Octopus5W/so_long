@@ -80,8 +80,11 @@ int init_game(t_game *game, const char *map_file)
     if (game->map_width < 5)
         return (ft_free(game->map, game->map_height),0);
     // allocate memory for the map
-    if (!alloc_map(game, map_file) || !count_PEC(game) || !check_wall(game))
+    if (!alloc_map(game, map_file))
         return (0);
+    set_player_position(game);
+    if (!is_possible(game))
+        return (ft_free(game->map, game->map_height), 0);
     // init
     game->mlx = mlx_init();
     // Récupérer la taille de l'écran

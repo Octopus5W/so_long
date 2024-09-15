@@ -49,9 +49,15 @@ int     load_map(t_game *game, const char *map_file);
 void    render_game(t_game *game);
 void    handle_player(t_game *game, char input);
 
+//player
+void    set_player_position(t_game *game);
+
 //check_map
 int     check_wall(t_game *game);
 int     count_PEC(t_game *game);
+void    back_track(char **map, int y, int x);
+int     check_map(char **map);
+int     is_possible(t_game *game);
 
 //clean
 void    free_game(t_game *game);
@@ -64,5 +70,7 @@ void    bind_hooks(t_game *game);
 int     ft_strlen(const char *s);
 void    ft_free(char **tab, int size);
 int     ft_strchr(const char *s, int c);
+char    *ft_strdup(const char *s);
+char    **ft_dup_tab(char **tab, int size);
 
 #endif
