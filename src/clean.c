@@ -1,6 +1,6 @@
 #include "../include/so_long.h"
 
-void free_game(t_game *game)
+int close_game(t_game *game)
 {
     int y = 0;
 
@@ -11,13 +11,13 @@ void free_game(t_game *game)
     }
     free(game->map);
     game->map = NULL;
+    mlx_destroy_image(game->mlx, game->wall);
+    mlx_destroy_image(game->mlx, game->floor);
+    mlx_destroy_image(game->mlx, game->player);
+    mlx_destroy_image(game->mlx, game->collectible);
+    mlx_destroy_image(game->mlx, game->exit);
     mlx_destroy_window(game->mlx, game->win);
     mlx_destroy_display(game->mlx);
     game->mlx = NULL;
-}
-
-int close_game(t_game *game)
-{
-    free_game(game);
     exit(0);
 }

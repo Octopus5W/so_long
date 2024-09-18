@@ -2,19 +2,23 @@
 
 int key_hook(int key, t_game *game)
 {
-    if (key == KEY_W && game->player_y > 1)  // Haut
+    printf("%i\n", key);
+    if (key == KEY_W && game->map[game->player_y - 1][game->player_x] != '1')
         game->player_y--;
-    else if (key == KEY_A && game->player_x > 1)  // Gauche
+    else if (key == KEY_A && game->map[game->player_y][game->player_x - 1] != '1')
         game->player_x--;
-    else if (key == KEY_S && game->player_y < game->map_height - 2)  // Bas
+    else if (key == KEY_S && game->map[game->player_y + 1][game->player_x] != '1')
         game->player_y++;
-    else if (key == KEY_D && game->player_x < game->map_width - 2)  // Droite
+    else if (key == KEY_D && game->map[game->player_y][game->player_x + 1] != '1')
         game->player_x++;
-    else if (key == KEY_ESC)  // Echap
+    else
+        return (0);
+    if (game->map[game->player_y][game->player_x] == 'C')
+        game->count_collectibles--;
+    if (key == KEY_ESC || (game->map[game->player_y][game->player_x] == 'E' && game->count_collectibles == 0))
         close_game(game);
-    // Redessiner la carte après le déplacement
     render_game(game);
-    return (0);
+    return (key);
 }
 
 void bind_hooks(t_game *game)

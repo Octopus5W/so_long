@@ -2,26 +2,29 @@
 
 void render_game(t_game *game)
 {
-    int x, y;
-    char c;
+    int i;
+    int j;
 
-    y = 0;
-    while (y < game->map_height)
+    i = -1;
+    while (game->map[++i])
     {
-        x = 0;
-        while (x < game->map_width)
+        j = -1;
+        while (game->map[i][++j])
         {
-            c = game->map[y][x];
-            if (c == '1')  // Mur
-                mlx_pixel_put(game->mlx, game->win, x * 32, y * 32, 0xFFFFFF);  // Exemple de couleur pour les murs
-            else if (c == '0')  // Sol
-                mlx_pixel_put(game->mlx, game->win, x * 32, y * 32, 0x000000);  // Exemple de couleur pour le sol
-            else if (c == 'C')  // Collectable
-                mlx_pixel_put(game->mlx, game->win, x * 32, y * 32, 0x00FF00);  // Exemple de couleur pour les collectables
-            else if (c == 'E')  // Sortie
-                mlx_pixel_put(game->mlx, game->win, x * 32, y * 32, 0xFF0000);  // Exemple de couleur pour la sortie
-            x++;
+            if (game->map[i][j] == '1')
+                put_sprite(game, j, i, game->wall);
+            else if (game->map[i][j] == '0')
+                put_sprite(game, j, i, game->floor);
+            else if (game->map[i][j] == 'C')
+            {
+                put_sprite(game, j, i, game->floor);
+                put_sprite(game, j, i, game->collectible);
+            }
+            else if (game->map[i][j] == 'E')
+                put_sprite(game, j, i, game->exit);
+            else if (game->map[i][j] == 'P')
+                put_sprite(game, j, i, game->floor);
         }
-        y++;
     }
+    put_sprite(game, game->player_x, game->player_y, game->player);
 }

@@ -27,23 +27,25 @@ int count_PEC(t_game *game)
     int j;
 
     i = -1;
-    game->player = 0;
-    game->collectibles = 0;
-    game->exit = 0;
+    game->count_player = 0;
+    game->count_collectibles = 0;
+    game->count_exit = 0;
     while (++i < game->map_height)
     {
         j = -1;
         while (++j < game->map_width)
         {
             if (game->map[i][j] == 'P')
-                game->player++;
+                game->count_player++;
             else if (game->map[i][j] == 'C')
-                game->collectibles++;
+                game->count_collectibles++;
             else if (game->map[i][j] == 'E')
-                game->exit++;
+                game->count_exit++;
+            else if (game->map[i][j] != '1' && game->map[i][j] != '0' && game->map[i][j] != '\n' && game->map[i][j] != '\0')
+                return(0);
         }
     }
-    if (game->player != 1 || game->exit != 1 || game->collectibles < 1)
+    if (game->count_player != 1 || game->count_exit != 1 || game->count_collectibles < 1)
         return(0);
     else
         return(1);

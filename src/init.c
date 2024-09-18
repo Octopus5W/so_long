@@ -90,7 +90,7 @@ int init_game(t_game *game, const char *map_file)
     // Récupérer la taille de l'écran
     mlx_get_screen_size(game->mlx, &game->screen_width, &game->screen_height);
     // Créer une fenêtre de la taille de l'écran (simulation plein écran)
-    game->win = mlx_new_window(game->mlx, game->screen_width, game->screen_height, "Dragon Ball Z");
+    game->win = mlx_new_window(game->mlx, game->screen_width, game->screen_height, "SO_LOOOOONG");
     bind_hooks(game);
     return (1);
 }
