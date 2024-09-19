@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:35 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 15:14:58 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/19 16:08:29 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static int	count_lines(const char *map_file)
 			return (close(fd), 0);
 		count_lines++;
 		free(line);
+		line = get_next_line(fd);
 	}
 	close(fd);
 	return (count_lines);
@@ -54,7 +55,10 @@ static int	count_width(const char *map_file)
 		lenght = ft_strlen(line);
 	line = get_next_line(fd);
 	while (line != NULL)
+	{
 		free(line);
+		line = get_next_line(fd);
+	}
 	close(fd);
 	return (lenght);
 }
