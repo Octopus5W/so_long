@@ -6,13 +6,13 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:56 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 12:14:57 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:34:45 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	set_sprite(t_game *game)
+void	set_sprite(t_game *game)
 {
 	game->wall = mlx_xpm_file_to_image(game->mlx, WALL_FOLDER, &game->img_width,
 			&game->img_height);
@@ -24,6 +24,10 @@ int	set_sprite(t_game *game)
 			&game->img_width, &game->img_height);
 	game->exit = mlx_xpm_file_to_image(game->mlx, EXIT_FOLDER, &game->img_width,
 			&game->img_height);
+}
+
+int	check_sprite(t_game *game)
+{
 	if (!game->wall || !game->floor || !game->player || !game->collectible
 		|| !game->exit)
 	{

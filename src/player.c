@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:46 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 12:14:47 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:26:48 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	set_player_position(t_game *game)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (game->map[++i])

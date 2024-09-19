@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:29 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 14:17:00 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:21:43 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ int	key_hook(int key, t_game *game)
 	printf("%i\n", key);
 	if (key == KEY_W && game->map[game->player_y - 1][game->player_x] != '1')
 		game->player_y--;
-	else if (key == KEY_A && game->map[game->player_y][game->player_x
-		- 1] != '1')
+	else if (key == KEY_A \
+			&& game->map[game->player_y][game->player_x - 1] != '1')
 		game->player_x--;
-	else if (key == KEY_S && game->map[game->player_y
-		+ 1][game->player_x] != '1')
+	else if (key == KEY_S \
+			&& game->map[game->player_y + 1][game->player_x] != '1')
 		game->player_y++;
-	else if (key == KEY_D && game->map[game->player_y][game->player_x
-		+ 1] != '1')
+	else if (key == KEY_D \
+			&& game->map[game->player_y][game->player_x + 1] != '1')
 		game->player_x++;
 	else if (key == KEY_ESC)
 		close_game(game, "You lose\n", 0);

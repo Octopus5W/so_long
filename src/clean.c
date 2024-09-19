@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:24 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 14:12:18 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:22:43 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	close_game(t_game *game, char *message, int exit_mod)
 	exit(exit_mod);
 }
 
-int close_game_click(t_game *game)
+int	close_game_click(t_game *game)
 {
 	close_game(game, "You lose\n", 0);
 	return (0);

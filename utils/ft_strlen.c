@@ -6,13 +6,13 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:15:20 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 12:15:21 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:28:22 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(const char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i])

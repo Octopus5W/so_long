@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/19 15:13:21 by hdelbecq          #+#    #+#             */
+/*   Updated: 2024/09/19 15:35:02 by hdelbecq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
 // includes
 # include "../get_next_line/get_next_line.h"
-# include "../mlx_linux/mlx.h"
-# include "../mlx_linux/mlx_int.h"
+# include "../minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx_int.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -53,7 +65,6 @@ typedef struct s_game
 }			t_game;
 
 int			init_game(t_game *game, const char *map_file);
-void		render_game(t_game *game);
 
 void		render_game(t_game *game);
 
@@ -62,7 +73,7 @@ void		set_player_position(t_game *game);
 
 // check_map
 int			check_wall(t_game *game);
-int			count_PEC(t_game *game);
+int			count_pec(t_game *game);
 void		back_track(char **map, int y, int x);
 int			check_map(char **map);
 int			is_possible(t_game *game);
@@ -74,8 +85,9 @@ int			close_game_click(t_game *game);
 // hook
 void		bind_hooks(t_game *game);
 
-// img
-int			set_sprite(t_game *game);
+// spite
+void		set_sprite(t_game *game);
+int			check_sprite(t_game *game);
 void		put_sprite(t_game *game, int map_x, int map_y, char *sprite);
 
 // utils

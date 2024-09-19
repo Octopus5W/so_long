@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:18 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 12:14:20 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/19 15:31:07 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,12 @@ int	check_wall(t_game *game)
 	return (1);
 }
 
-int	count_PEC(t_game *game)
+int	count_pec(t_game *game)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	game->count_player = 0;
-	game->count_collectibles = 0;
-	game->count_exit = 0;
 	while (++i < game->map_height)
 	{
 		j = -1;
@@ -101,11 +98,14 @@ int	is_possible(t_game *game)
 	char	**map;
 
 	map = ft_dup_tab(game->map, game->map_height);
+	game->count_player = 0;
+	game->count_collectibles = 0;
+	game->count_exit = 0;
 	if (!map)
 		return (0);
 	if (!check_wall(game))
 		return (ft_free(map, game->map_height), 0);
-	if (!count_PEC(game))
+	if (!count_pec(game))
 		return (ft_free(map, game->map_height), 0);
 	back_track(map, game->player_y, game->player_x);
 	if (!check_map(map))
