@@ -1,11 +1,31 @@
 #include "../include/so_long.h"
 
+int check_filename(char* filename, char* extension)
+{
+    int i;
+    int j;
+
+    i = 0;
+    j = 0;
+    while (filename && filename[i])
+        i++;
+    if (i >= 5)
+    {
+        while (extension + j && *(filename + i - 4 + j) == *(extension + j))
+            j++;
+    }
+    if (j == 5)
+        return (1);
+    return (0);
+}
+
+
 int main(int argc, char **argv)
 {
     t_game game;
 
-    if (argc != 2)
-        return (write(2, "Usage: ./so_long [map]\n", 23), 1);
+    if (argc != 2 || !check_filename(argv[1], ".ber"))
+        return (write(2, "Usage: ./so_long [map.ber]\n", 27), 1);
     if (!init_game(&game, argv[1]))
         return (write(2, "Failed to init game\n", 21), 1);
     if (!set_sprite(&game))

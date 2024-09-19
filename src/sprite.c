@@ -2,11 +2,11 @@
 
 int set_sprite(t_game *game)
 {
-    game->wall = mlx_xpm_file_to_image(game->mlx, "sprite/wall.xpm", &game->img_width, &game->img_height);
-    game->floor = mlx_xpm_file_to_image(game->mlx, "sprite/floor.xpm", &game->img_width, &game->img_height);
-    game->player = mlx_xpm_file_to_image(game->mlx, "sprite/player.xpm", &game->img_width, &game->img_height);
-    game->collectible = mlx_xpm_file_to_image(game->mlx, "sprite/collectible.xpm", &game->img_width, &game->img_height);
-    game->exit = mlx_xpm_file_to_image(game->mlx, "sprite/exit.xpm", &game->img_width, &game->img_height);
+    game->wall = mlx_xpm_file_to_image(game->mlx, WALL_FOLDER, &game->img_width, &game->img_height);
+    game->floor = mlx_xpm_file_to_image(game->mlx, FLOOR_FOLDER, &game->img_width, &game->img_height);
+    game->player = mlx_xpm_file_to_image(game->mlx, PLAYER_FOLDER, &game->img_width, &game->img_height);
+    game->collectible = mlx_xpm_file_to_image(game->mlx, COLLECTIBLE_FOLDER, &game->img_width, &game->img_height);
+    game->exit = mlx_xpm_file_to_image(game->mlx, EXIT_FOLDER, &game->img_width, &game->img_height);
     if (!game->wall || !game->floor || !game->player || !game->collectible || !game->exit)
     {
         if (game->wall)

@@ -72,25 +72,22 @@ static int alloc_map(t_game *game, const char *map_file)
 
 int init_game(t_game *game, const char *map_file)
 {
-    // count line and width of the map
     game->map_height = count_lines(map_file);
     if (game->map_height < 3)
         return (0);
     game->map_width = count_width(map_file);
     if (game->map_width < 5)
         return (ft_free(game->map, game->map_height),0);
-    // allocate memory for the map
     if (!alloc_map(game, map_file))
         return (0);
     set_player_position(game);
     if (!is_possible(game))
         return (ft_free(game->map, game->map_height), 0);
-    // init
     game->mlx = mlx_init();
-    // Récupérer la taille de l'écran
     mlx_get_screen_size(game->mlx, &game->screen_width, &game->screen_height);
-    // Créer une fenêtre de la taille de l'écran (simulation plein écran)
-    game->win = mlx_new_window(game->mlx, game->screen_width, game->screen_height, "SO_LOOOOONG");
+    if (game->screen_height < (game->map_height * 64) || game->screen_width < (game->map_width * 64))
+        return (ft_free(game->map, game->map_height), mlx_destroy_display(game->mlx), 0);
+    game->win = mlx_new_window(game->mlx, (game->map_width * 64), (game->map_height * 64), "SO_LOOOOONG");
     bind_hooks(game);
     return (1);
 }

@@ -20,28 +20,28 @@
 
 // image
 # define IMG_SIZE 64
-# define WALL_FOLDER "../sprite/wall.xpm"
-# define FLOOR_FOLDER "../sprite/floor.xpm"
-# define PLAYER_FOLDER "../sprite/player.xpm"
-# define COLLECTIBLE_FOLDER "../sprite/collectible.xpm"
-# define EXIT_FOLDER "../sprite/exit.xpm"
+# define WALL_FOLDER "sprite/wall.xpm"
+# define FLOOR_FOLDER "sprite/floor.xpm"
+# define PLAYER_FOLDER "sprite/player.xpm"
+# define COLLECTIBLE_FOLDER "sprite/collectible.xpm"
+# define EXIT_FOLDER "sprite/exit.xpm"
 
 typedef struct s_game
 {
-    void    *mlx;         // Pointeur vers l'instance MLX
-    void    *win;         // Pointeur vers la fenêtre MLX
-    int     screen_width; // Largeur de l'écran
-    int     screen_height; // Hauteur de l'écran
-    int     count_player;      // Nombre de joueurs
-    int     count_exit;        // Nombre de sorties
-    int     count_collectibles; // Nombre de collectables
-    int     exit_x;      // Position x de la sortie
-    int     exit_y;      // Position y de la sortie
-    int     player_x;    // Position x du joueur
-    int     player_y;    // Position y du joueur
-    char    **map;       // La carte du jeu
-    int     map_width;   // Largeur de la carte
-    int     map_height;  // Hauteur de la carte
+    void    *mlx;
+    void    *win;
+    int     screen_width;
+    int     screen_height;
+    int     count_player;
+    int     count_exit;
+    int     count_collectibles;
+    int     exit_x;
+    int     exit_y;
+    int     player_x;
+    int     player_y;
+    char    **map;
+    int     map_width;
+    int     map_height;
     char*   img;
     int   img_width;
     int   img_height;
@@ -54,9 +54,7 @@ typedef struct s_game
 
 
 int     init_game(t_game *game, const char *map_file);
-int     load_map(t_game *game, const char *map_file);
 void    render_game(t_game *game);
-void    handle_player(t_game *game, char input);
 
 void render_game(t_game *game);
 

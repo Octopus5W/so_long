@@ -19,5 +19,6 @@ int close_game(t_game *game)
     mlx_destroy_window(game->mlx, game->win);
     mlx_destroy_display(game->mlx);
     game->mlx = NULL;
+    system("leaks so_long");
     exit(0);
 }
