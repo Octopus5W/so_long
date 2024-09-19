@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/19 12:14:46 by hdelbecq          #+#    #+#             */
+/*   Updated: 2024/09/19 12:14:47 by hdelbecq         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/so_long.h"
 
-void set_player_position(t_game *game)
+void	set_player_position(t_game *game)
 {
 	int i;
 	int j;

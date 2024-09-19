@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2024/04/13 18:40:35 by hdelbecq          #+#    #+#             */
 /*   Updated: 2024/04/13 22:19:57 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
@@ -14,8 +17,8 @@
 
 char	*ft_strdup(const char *s)
 {
-	char	*str;
-	int	i;
+	char *str;
+	int i;
 
 	i = 0;
 	str = (char *)malloc(sizeof(char) * (ft_strlen((char *)s) + 1));
@@ -31,6 +34,8 @@ char	*ft_strdup(const char *s)
 }
 /*
 #include <stdio.h>
+
+
 
 int main ()
 {
