@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:41 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/21 13:45:37 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/21 14:41:29 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,5 @@ int	main(int argc, char **argv)
 	set_player_position(&game);
 	bind_hooks(&game);
 	mlx_loop(game.mlx);
-	system("leaks so_long");
 	return (0);
 }
