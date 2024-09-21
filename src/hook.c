@@ -6,26 +6,53 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:29 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/21 13:04:43 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/21 14:40:31 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+void	count_moves(int key, t_game *game)
+{
+	if (key == KEY_W && game->map[game->player_y - 1][game->player_x] != '1')
+	{
+		ft_putnbr(++game->nb_move);
+		write(1, "\n", 1);
+	}
+	else if (key == KEY_A \
+		&& game->map[game->player_y][game->player_x - 1] != '1')
+	{
+		ft_putnbr(++game->nb_move);
+		write(1, "\n", 1);
+	}
+	else if (key == KEY_S \
+		&& game->map[game->player_y + 1][game->player_x] != '1')
+	{
+		ft_putnbr(++game->nb_move);
+		write(1, "\n", 1);
+	}
+	else if (key == KEY_D \
+		&& game->map[game->player_y][game->player_x + 1] != '1')
+	{
+		ft_putnbr(++game->nb_move);
+		write(1, "\n", 1);
+	}
+}
+
 int	key_hook(int key, t_game *game)
 {
-	if (key == KEY_W || key == KEY_S || key == KEY_A || key == KEY_D)
-		game->nb_move++;
-	if (key == KEY_W && game->map[game->player_y - 1][game->player_x] != '1')
+	count_moves(key, game);
+	if (key == KEY_W \
+		&& game->map[game->player_y - 1][game->player_x] != '1')
 		game->player_y--;
 	else if (key == KEY_A \
-			&& game->map[game->player_y][game->player_x - 1] != '1')
+		&& game->map[game->player_y][game->player_x - 1] != '1')
 		game->player_x--;
 	else if (key == KEY_S \
-			&& game->map[game->player_y + 1][game->player_x] != '1')
+		&& game->map[game->player_y + 1][game->player_x] != '1')
 		game->player_y++;
 	else if (key == KEY_D \
-			&& game->map[game->player_y][game->player_x + 1] != '1')
+		&& game->map[game->player_y][game->player_x + 1] != '1')
 		game->player_x++;
 	else if (key == KEY_ESC)
 		close_game(game, "You lose\n", 0);

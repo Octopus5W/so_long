@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 12:14:46 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/21 14:33:37 by hdelbecq         ###   ########.fr       */
+/*   Created: 2024/04/23 18:58:56 by hdelbecq          #+#    #+#             */
+/*   Updated: 2024/09/21 14:40:41 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include <unistd.h>
 
-void	set_player_position(t_game *game)
+void	ft_putnbr(int n)
 {
-	int	i;
-	int	j;
+	int	nb;
 
-	i = -1;
-	while (game->map[++i])
+	if (n == -2147483648)
+		write(1, "-2147483648", 11);
+	else if (n < 0)
 	{
-		j = -1;
-		while (game->map[i][++j])
+		write(1, "-", 1);
+		n = n * -1;
+		ft_putnbr(n);
+	}
+	else
+	{
+		nb = n % 10 + 48;
+		if (n > 9)
 		{
-			if (game->map[i][j] == 'P')
-			{
-				game->player_x = j;
-				game->player_y = i;
-				return ;
-			}
+			ft_putnbr(n / 10);
+			write(1, &nb, 1);
 		}
+		else if (n <= 9)
+			write(1, &nb, 1);
 	}
 }

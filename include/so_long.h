@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:13:21 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/21 13:07:41 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/21 14:33:56 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int			close_game(t_game *game, char *message, int exit_mod);
 int			close_game_click(t_game *game);
 
 // hook
+void		count_moves(int key, t_game *game);
 void		bind_hooks(t_game *game);
 
 // spite
@@ -96,5 +97,6 @@ void		ft_free(char **tab, int size);
 int			ft_strchr(const char *s, int c);
 char		*ft_strdup(const char *s);
 char		**ft_dup_tab(char **tab, int size);
+void		ft_putnbr(int n);
 
 #endif

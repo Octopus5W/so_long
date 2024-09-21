@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:18 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 15:31:07 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/21 14:07:42 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@ int	check_wall(t_game *game)
 	int	j;
 
 	i = -1;
-	while (game->map[++i])
+	while (++i < game->map_height)
 	{
 		j = -1;
-		while (game->map[i][++j])
+		while (++j < game->map_width - 1)
 		{
-			if (i == 0 || j == 0 || i == game->map_height - 1
+			if (i == 0 || j == 0 || i == game->map_height - 1 \
 				|| j == game->map_width - 2)
 			{
-				if (game->map[i][j] != '1' && !game->map[i][j])
+				if (game->map[i][j] == '\0')
+					return (1);
+				if (game->map[i][j] != '1')
 					return (0);
 			}
 		}
