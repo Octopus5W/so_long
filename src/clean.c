@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:24 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 15:22:43 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/21 13:09:13 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	close_game(t_game *game, char *message, int exit_mod)
 	mlx_destroy_display(game->mlx);
 	game->mlx = NULL;
 	if (message && *message && exit_mod == 0)
-		printf("%s\n", message);
+		write(1, message, ft_strlen(message));
 	else if (message && *message && exit_mod)
 		write(2, message, ft_strlen(message));
 	system("leaks so_long");

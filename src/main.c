@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:41 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 16:09:03 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/21 13:05:56 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,14 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	game.nb_move = 0;
 	if (argc != 2 || !check_filename(argv[1], ".ber"))
-		return (write(2, "Usage: ./so_long [map.ber]\n", 27), 1);
+		return (write(2, "Error: ./so_long [map.ber]\n", 27), 1);
 	if (!init_game(&game, argv[1]))
-		return (write(2, "Failed to init game\n", 21), 1);
+		return (write(2, "Error: Failed to init game\n", 21), 1);
 	set_sprite(&game);
 	if (!check_sprite(&game))
-		return (write(2, "Failed to load image\n", 22), 1);
+		return (write(2, "Error: Failed to load image\n", 22), 1);
 	render_game(&game);
 	set_player_position(&game);
 	bind_hooks(&game);

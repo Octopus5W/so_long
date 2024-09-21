@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:29 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 15:21:43 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/21 13:04:43 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	key_hook(int key, t_game *game)
 {
-	printf("%i\n", key);
+	if (key == KEY_W || key == KEY_S || key == KEY_A || key == KEY_D)
+		game->nb_move++;
 	if (key == KEY_W && game->map[game->player_y - 1][game->player_x] != '1')
 		game->player_y--;
 	else if (key == KEY_A \
@@ -28,8 +29,6 @@ int	key_hook(int key, t_game *game)
 		game->player_x++;
 	else if (key == KEY_ESC)
 		close_game(game, "You lose\n", 0);
-	else if (key != KEY_W && key != KEY_S && key != KEY_A && key != KEY_D)
-		close_game(game, "Invalid key\n", 1);
 	if (game->map[game->player_y][game->player_x] == 'C')
 	{
 		game->count_collectibles--;

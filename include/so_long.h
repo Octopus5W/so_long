@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:13:21 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 15:35:02 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/21 13:07:41 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "../minilibx-linux/mlx.h"
 # include "../minilibx-linux/mlx_int.h"
 # include <fcntl.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -44,6 +43,7 @@ typedef struct s_game
 	void	*win;
 	int		screen_width;
 	int		screen_height;
+	int		nb_move;
 	int		count_player;
 	int		count_exit;
 	int		count_collectibles;
