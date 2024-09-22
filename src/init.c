@@ -6,7 +6,7 @@
 /*   By: hdelbecq <hdelbecq@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:14:35 by hdelbecq          #+#    #+#             */
-/*   Updated: 2024/09/19 16:08:29 by hdelbecq         ###   ########.fr       */
+/*   Updated: 2024/09/22 16:32:09 by hdelbecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	count_lines(const char *map_file)
 			lenght = ft_strlen(line);
 		else if ((ft_strlen(line) != lenght && ft_strchr(line, '\n'))
 			|| (ft_strlen(line) + 1 != lenght && ft_strchr(line, '\0')))
-			return (close(fd), 0);
+			return (free(line), close(fd), 0);
 		count_lines++;
 		free(line);
 		line = get_next_line(fd);
@@ -53,6 +53,7 @@ static int	count_width(const char *map_file)
 	line = get_next_line(fd);
 	if (line)
 		lenght = ft_strlen(line);
+	free(line);
 	line = get_next_line(fd);
 	while (line != NULL)
 	{

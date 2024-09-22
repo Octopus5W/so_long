@@ -18,7 +18,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
+#  define BUFFER_SIZE 1
 # endif
 
 int		ft_strclen(char *s, char c);
@@ -29,5 +29,4 @@ char	*ft_strcpy(char **src, char **dest);
 char	*read_next_line(char **old_line, int fd);
 char	*create_line(char **next_line, char **line, char **t_line, int fd);
 char	*get_next_line(int fd);
-
 #endif
